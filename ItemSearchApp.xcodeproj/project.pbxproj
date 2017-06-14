@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		F34BF2AD1EEF752B006309F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34BF2AC1EEF752B006309F1 /* AppDelegate.swift */; };
-		F34BF2AF1EEF752B006309F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34BF2AE1EEF752B006309F1 /* ViewController.swift */; };
 		F34BF2B21EEF752B006309F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F34BF2B01EEF752B006309F1 /* Main.storyboard */; };
 		F34BF2B41EEF752B006309F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F34BF2B31EEF752B006309F1 /* Assets.xcassets */; };
 		F34BF2B71EEF752B006309F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F34BF2B51EEF752B006309F1 /* LaunchScreen.storyboard */; };
 		F34BF2C21EEF752B006309F1 /* ItemSearchAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34BF2C11EEF752B006309F1 /* ItemSearchAppTests.swift */; };
 		F34BF2CD1EEF752B006309F1 /* ItemSearchAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34BF2CC1EEF752B006309F1 /* ItemSearchAppUITests.swift */; };
+		F34EA94F1EF0BAB00071BE70 /* ItemSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34EA94E1EF0BAB00071BE70 /* ItemSearchTableViewController.swift */; };
+		F353AA9A1EF0BFC100359DF1 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F353AA991EF0BFC100359DF1 /* ItemTableViewCell.swift */; };
+		F353AA9C1EF0BFDE00359DF1 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F353AA9B1EF0BFDE00359DF1 /* ItemData.swift */; };
+		F353AA9E1EF0BFF100359DF1 /* ItemDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F353AA9D1EF0BFF100359DF1 /* ItemDataManager.swift */; };
+		F353AAA01EF0C12300359DF1 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F353AA9F1EF0C12300359DF1 /* ItemDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +40,6 @@
 /* Begin PBXFileReference section */
 		F34BF2A91EEF752B006309F1 /* ItemSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItemSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F34BF2AC1EEF752B006309F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F34BF2AE1EEF752B006309F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F34BF2B11EEF752B006309F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F34BF2B31EEF752B006309F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F34BF2B61EEF752B006309F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +50,11 @@
 		F34BF2C81EEF752B006309F1 /* ItemSearchAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ItemSearchAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F34BF2CC1EEF752B006309F1 /* ItemSearchAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSearchAppUITests.swift; sourceTree = "<group>"; };
 		F34BF2CE1EEF752B006309F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F34EA94E1EF0BAB00071BE70 /* ItemSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSearchTableViewController.swift; sourceTree = "<group>"; };
+		F353AA991EF0BFC100359DF1 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		F353AA9B1EF0BFDE00359DF1 /* ItemData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemData.swift; path = data/ItemData.swift; sourceTree = "<group>"; };
+		F353AA9D1EF0BFF100359DF1 /* ItemDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemDataManager.swift; path = data/ItemDataManager.swift; sourceTree = "<group>"; };
+		F353AA9F1EF0C12300359DF1 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +106,11 @@
 			isa = PBXGroup;
 			children = (
 				F34BF2AC1EEF752B006309F1 /* AppDelegate.swift */,
-				F34BF2AE1EEF752B006309F1 /* ViewController.swift */,
+				F34EA94E1EF0BAB00071BE70 /* ItemSearchTableViewController.swift */,
+				F353AA991EF0BFC100359DF1 /* ItemTableViewCell.swift */,
+				F353AA9F1EF0C12300359DF1 /* ItemDetailViewController.swift */,
 				F34BF2B01EEF752B006309F1 /* Main.storyboard */,
+				F353AA981EF0BFA700359DF1 /* data */,
 				F34BF2B31EEF752B006309F1 /* Assets.xcassets */,
 				F34BF2B51EEF752B006309F1 /* LaunchScreen.storyboard */,
 				F34BF2B81EEF752B006309F1 /* Info.plist */,
@@ -123,6 +134,15 @@
 				F34BF2CE1EEF752B006309F1 /* Info.plist */,
 			);
 			path = ItemSearchAppUITests;
+			sourceTree = "<group>";
+		};
+		F353AA981EF0BFA700359DF1 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				F353AA9B1EF0BFDE00359DF1 /* ItemData.swift */,
+				F353AA9D1EF0BFF100359DF1 /* ItemDataManager.swift */,
+			);
+			name = data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +279,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F34BF2AF1EEF752B006309F1 /* ViewController.swift in Sources */,
+				F353AA9E1EF0BFF100359DF1 /* ItemDataManager.swift in Sources */,
+				F34EA94F1EF0BAB00071BE70 /* ItemSearchTableViewController.swift in Sources */,
+				F353AAA01EF0C12300359DF1 /* ItemDetailViewController.swift in Sources */,
+				F353AA9A1EF0BFC100359DF1 /* ItemTableViewCell.swift in Sources */,
+				F353AA9C1EF0BFDE00359DF1 /* ItemData.swift in Sources */,
 				F34BF2AD1EEF752B006309F1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,6 +531,7 @@
 				F34BF2D31EEF752B006309F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F34BF2D41EEF752B006309F1 /* Build configuration list for PBXNativeTarget "ItemSearchAppTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +540,7 @@
 				F34BF2D61EEF752B006309F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F34BF2D71EEF752B006309F1 /* Build configuration list for PBXNativeTarget "ItemSearchAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +549,7 @@
 				F34BF2D91EEF752B006309F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

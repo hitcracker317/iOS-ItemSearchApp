@@ -14,28 +14,30 @@ import SwiftyJSON
 class ItemDataManager {
     static let sharedInstance = ItemDataManager()
     
-    var ItemDataArray = [ItemData]()
     let entryUrl = "http://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?"
     let appID = "dj0zaiZpPTRXYXhydXFOY3RDMyZzPWNvbnN1bWVyc2VjcmV0Jng9Zjg-"
     
     
-    func getItemData(text:String) -> [ItemData]{
-        //入力したテキストを元にAPIに通信。その結果を配列に格納して返す
-        
-        //appIDと検索文字の2点をエンコード
-        let apiParameter = [
-            "appid": appID,
-            "query": text
-        ]
-        let requstURL = getRequestURL(parameter: apiParameter)
-        getData(requestURL: requstURL)
-        
-        
-        return ItemDataArray
-    }
-    
     private init() {
         
+    }
+    
+    func getItemData(text:String) -> [ItemData]{
+        
+        var itemDataArray = [ItemData]()
+        
+        //WebAPIのレスポンスを受け取るまで待つ
+            
+        //入力したテキストを元にAPIに通信。その結果を配列に格納して返す
+        //appIDと検索文字の2点をエンコード
+        let apiParameter = [
+            "appid": self.appID,
+            "query": text
+        ]
+        
+        let requstURL = getRequestURL(parameter: apiParameter)
+        itemDataArray = getData(requestURL: requstURL)
+        return itemDataArray
     }
     
     //appIDと商品検索用のクエリ文字列をリクエスト可能な文字列にエンコード
@@ -66,26 +68,31 @@ class ItemDataManager {
     }
     
     //WebAPIにリクエストを送信
-    func getData(requestURL: String) {
+    func getData(requestURL: String) -> [ItemData] {
+        
+        var itemDataArray = [ItemData]()
+        
         Alamofire.request(requestURL, method: .get).responseJSON{ response in
             
             guard let itemData = response.result.value else{
-                print("json取得できねえ！")
+                //print("json取得できねえ！")
                 return
             }
             
             let jsonData = JSON(itemData)["ResultSet"]["0"]["Result"] //取得した商品データ一覧のJSON
-            print("jsonの中身：\(jsonData)")
+            //print("jsonの中身：\(jsonData)")
             
             for (index,_):(String, JSON) in jsonData {
-                //JSONパースして商品情報のオブジェクトを作成する
-                self.createItemData(jsonData: jsonData, index: index)
+                
+                let itemData = self.createItemData(jsonData: jsonData, index: index)
+                itemDataArray.append(itemData)
             }
-            
         }
+        return itemDataArray
     }
     
-    func createItemData(jsonData: JSON, index: String) {
+    //JSONパースして商品情報のオブジェクトを作成する
+    func createItemData(jsonData: JSON, index: String) -> ItemData {
         let itemData = ItemData()
         
         itemData.imageImageUrl = jsonData["\(index)"]["Image"]["Medium"].string
@@ -93,6 +100,6 @@ class ItemDataManager {
         itemData.itemPrice = jsonData["\(index)"]["Price"]["_value"].string
         itemData.itemUrl = jsonData["\(index)"]["Url"].string
         
-        ItemDataArray.append(itemData)
+        return itemData
     }
 }

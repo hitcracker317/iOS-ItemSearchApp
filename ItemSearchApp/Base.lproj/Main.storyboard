@@ -27,7 +27,7 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" id="CyX-gA-Wph">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" id="CyX-gA-Wph" customClass="ItemTableViewCell" customModule="ItemSearchApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CyX-gA-Wph" id="pMc-e0-lEX">
@@ -69,6 +69,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="itemImageView" destination="PkL-nL-241" id="AaV-VC-Dg0"/>
+                                    <outlet property="itemPriceLabel" destination="qRq-ci-qYd" id="nOD-rY-XsI"/>
+                                    <outlet property="itemTitleLabel" destination="boB-WB-dvt" id="Itu-3v-cho"/>
                                     <segue destination="Gl4-RF-0cY" kind="show" id="FlI-Ly-df5"/>
                                 </connections>
                             </tableViewCell>
@@ -79,6 +82,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="gst-gJ-XXh"/>
+                    <connections>
+                        <outlet property="itemSearchBar" destination="ung-pT-8bp" id="110-wL-VMu"/>
+                        <outlet property="itemTableView" destination="axj-3G-YCz" id="WOQ-Pw-SFr"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cJD-ja-7lZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

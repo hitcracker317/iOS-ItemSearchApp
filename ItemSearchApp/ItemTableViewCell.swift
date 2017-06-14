@@ -10,6 +10,12 @@ import UIKit
 
 class ItemTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet weak var itemTitleLabel: UILabel!
+    @IBOutlet weak var itemPriceLabel: UILabel!
+    
+    var itemURL:String?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +25,12 @@ class ItemTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    override func prepareForReuse() {
+        //セルの再利用時に呼ばれるメソッド
+        //ここでセルの初期化処理を行う
+        //itemImageView.image = nil
     }
 
 }

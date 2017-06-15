@@ -41,7 +41,7 @@ class ItemSearchTableViewController: UITableViewController, UISearchBarDelegate 
                 self.itemDataArray = response as [ItemData]
                 print("レスポンス：\(self.itemDataArray)")
                 
-                //取得したデータを元にtableviewを更新
+                self.itemTableView.reloadData() //取得したデータを元にtableviewを更新
             }
         }
         itemSearchBar.resignFirstResponder() //キーボード閉じる
@@ -60,8 +60,9 @@ class ItemSearchTableViewController: UITableViewController, UISearchBarDelegate 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //セルの描画
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-        return cell
+        let itemCell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! ItemTableViewCell
+        itemCell.addItemData(itemData: self.itemDataArray[indexPath.row]) 
+        return itemCell
     }
     
 

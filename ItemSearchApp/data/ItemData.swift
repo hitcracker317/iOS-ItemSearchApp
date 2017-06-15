@@ -10,7 +10,7 @@ import Foundation
 
 class ItemData {
     
-    var imageImageUrl:String? //画像url
+    var itemImageUrl:String? //画像url
     var itemTitle:String? //商品タイトル
     var itemPrice:String? //商品価格
     var itemUrl:String? //商品ページURL

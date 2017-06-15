@@ -87,8 +87,8 @@ class ItemDataManager {
     func createItemData(jsonData: JSON, index: String) -> ItemData {
         let itemData = ItemData()
         
-        itemData.imageImageUrl = jsonData["\(index)"]["Image"]["Medium"].string
-        itemData.itemTitle = jsonData["\(index)"]["Nmae"].string
+        itemData.itemImageUrl = jsonData["\(index)"]["Image"]["Medium"].string
+        itemData.itemTitle = jsonData["\(index)"]["Name"].string
         itemData.itemPrice = jsonData["\(index)"]["Price"]["_value"].string
         itemData.itemUrl = jsonData["\(index)"]["Url"].string
         

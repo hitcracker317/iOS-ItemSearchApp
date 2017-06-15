@@ -22,7 +22,7 @@ class ItemDataManager {
         
     }
     
-    func getItemData(text:String) -> [ItemData]{
+    func getItemData(text:String, apiResponse:@escaping (_ responseArray:[ItemData]) -> ()){
         
         var itemDataArray = [ItemData]()
         
@@ -35,9 +35,27 @@ class ItemDataManager {
             "query": text
         ]
         
-        let requstURL = getRequestURL(parameter: apiParameter)
-        itemDataArray = getData(requestURL: requstURL)
-        return itemDataArray
+        let requestURL = getRequestURL(parameter: apiParameter)
+        
+        Alamofire.request(requestURL, method: .get).responseJSON{ response in
+            //WebAPIにリクエストを送信
+            guard let itemData = response.result.value else{
+                print("取得エラー")
+                return
+            }
+            
+            let jsonData = JSON(itemData)["ResultSet"]["0"]["Result"] //取得した商品データ一覧のJSON
+            
+            for (index,_):(String, JSON) in jsonData {
+                
+                let itemData = self.createItemData(jsonData: jsonData, index: index)
+                itemDataArray.append(itemData)
+            }
+            
+            apiResponse(itemDataArray)
+        }
+
+        
     }
     
     //appIDと商品検索用のクエリ文字列をリクエスト可能な文字列にエンコード
@@ -47,9 +65,7 @@ class ItemDataManager {
             //エンコード失敗
             return nil
         }
-        
-        //エンコードした値を返す
-        return "\(key)=\(encodedValue)"
+        return "\(key)=\(encodedValue)" //エンコードした値を返す
     }
     
     //エンコードした文字列を元にリクエスト用のURLを作成
@@ -65,30 +81,6 @@ class ItemDataManager {
         return requestURL
         
         
-    }
-    
-    //WebAPIにリクエストを送信
-    func getData(requestURL: String) -> [ItemData] {
-        
-        var itemDataArray = [ItemData]()
-        
-        Alamofire.request(requestURL, method: .get).responseJSON{ response in
-            
-            guard let itemData = response.result.value else{
-                //print("json取得できねえ！")
-                return
-            }
-            
-            let jsonData = JSON(itemData)["ResultSet"]["0"]["Result"] //取得した商品データ一覧のJSON
-            //print("jsonの中身：\(jsonData)")
-            
-            for (index,_):(String, JSON) in jsonData {
-                
-                let itemData = self.createItemData(jsonData: jsonData, index: index)
-                itemDataArray.append(itemData)
-            }
-        }
-        return itemDataArray
     }
     
     //JSONパースして商品情報のオブジェクトを作成する

@@ -34,18 +34,10 @@ class ItemTableViewCell: UITableViewCell {
     }
     
     func addItemData(itemData: ItemData) {
-        //TODO：imageのURLがnilのときにクラッシュするので、その対処を行う。
-        var urlString = itemData.itemImageUrl
-        
-        if urlString == nil {
-            //itemImageView.image = UIImage(named: "no_image.png")
-            return
-        } else {
-            let imageUrl = URL(string: urlString!)
-            let imageData = NSData(contentsOf: imageUrl!)
-            itemImageView.image = UIImage(data: imageData! as Data)
-        }
-        
+        let urlString = itemData.itemImageUrl
+        let imageUrl = URL(string: urlString!)
+        let imageData = NSData(contentsOf: imageUrl!)
+        itemImageView.image = UIImage(data: imageData! as Data)
         
         itemTitleLabel.text = itemData.itemTitle
         itemPriceLabel.text = itemData.itemPrice

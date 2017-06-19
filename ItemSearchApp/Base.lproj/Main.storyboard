@@ -104,22 +104,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xOL-7f-JQZ">
-                                <rect key="frame" x="16" y="64" width="343" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="YXx-7K-gK4" firstAttribute="top" secondItem="xOL-7f-JQZ" secondAttribute="bottom" id="7vT-CW-Kv0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xOL-7f-JQZ" secondAttribute="trailing" id="Iqp-7A-jED"/>
-                            <constraint firstItem="xOL-7f-JQZ" firstAttribute="top" secondItem="Sn8-Vl-FwP" secondAttribute="bottom" id="cYH-8H-mEB"/>
-                            <constraint firstItem="xOL-7f-JQZ" firstAttribute="leading" secondItem="K2V-SL-9Nw" secondAttribute="leadingMargin" id="dVh-zS-G04"/>
+                            <constraint firstItem="xOL-7f-JQZ" firstAttribute="leading" secondItem="K2V-SL-9Nw" secondAttribute="leading" id="2N7-hm-40V"/>
+                            <constraint firstAttribute="trailing" secondItem="xOL-7f-JQZ" secondAttribute="trailing" id="G2F-dE-fwy"/>
+                            <constraint firstItem="YXx-7K-gK4" firstAttribute="top" secondItem="xOL-7f-JQZ" secondAttribute="bottom" id="Je3-OY-BaZ"/>
+                            <constraint firstItem="xOL-7f-JQZ" firstAttribute="top" secondItem="K2V-SL-9Nw" secondAttribute="top" id="gS4-hF-eXf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="itemDetailWebView" destination="xOL-7f-JQZ" id="ccm-si-Woy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WkY-j0-Deq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1770" y="125"/>
+            <point key="canvasLocation" x="1768.8" y="124.58770614692655"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0GN-nd-Vdk">

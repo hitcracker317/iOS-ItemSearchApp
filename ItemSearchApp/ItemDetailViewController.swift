@@ -10,15 +10,21 @@ import UIKit
 
 class ItemDetailViewController: UIViewController {
 
+    var itemDetailURL = ""
+    @IBOutlet weak var itemDetailWebView: UIWebView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //webviewにwebページの表示
+        let itemURL = URL(string: itemDetailURL)
+        let request = URLRequest(url: itemURL!)
+        itemDetailWebView.loadRequest(request)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
 

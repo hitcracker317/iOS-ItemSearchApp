@@ -90,6 +90,10 @@ class ItemSearchTableViewController: UITableViewController, UISearchBarDelegate 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //セグエの画面遷移をするタイミング
+        let selectedCell = sender as? ItemTableViewCell //sederって何？
+        let detailViewController = segue.destination as? ItemDetailViewController
+        detailViewController?.itemDetailURL = (selectedCell?.itemURL)!
     }
+    
 
 }

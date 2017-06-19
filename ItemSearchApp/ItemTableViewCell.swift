@@ -38,11 +38,14 @@ class ItemTableViewCell: UITableViewCell {
         var urlString = itemData.itemImageUrl
         
         if urlString == nil {
-            urlString = ""
+            //itemImageView.image = UIImage(named: "no_image.png")
+            return
+        } else {
+            let imageUrl = URL(string: urlString!)
+            let imageData = NSData(contentsOf: imageUrl!)
+            itemImageView.image = UIImage(data: imageData! as Data)
         }
-        let imageUrl = URL(string: urlString!)
-        let imageData = NSData(contentsOf: imageUrl!)
-        itemImageView.image = UIImage(data: imageData! as Data)
+        
         
         itemTitleLabel.text = itemData.itemTitle
         itemPriceLabel.text = itemData.itemPrice

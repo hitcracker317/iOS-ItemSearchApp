@@ -49,13 +49,12 @@ class ItemDataManager {
             for (index,_):(String, JSON) in jsonData {
                 
                 let itemData = self.createItemData(jsonData: jsonData, index: index)
-                itemDataArray.append(itemData)
+                if itemData.itemTitle != nil {
+                    itemDataArray.append(itemData)
+                }
             }
-            
             apiResponse(itemDataArray)
         }
-
-        
     }
     
     //appIDと商品検索用のクエリ文字列をリクエスト可能な文字列にエンコード
@@ -78,9 +77,7 @@ class ItemDataManager {
         }
         
         let requestURL = entryUrl + parameterArray[0] + "&" + parameterArray[1]
-        return requestURL
-        
-        
+        return requestURL   
     }
     
     //JSONパースして商品情報のオブジェクトを作成する
@@ -88,6 +85,7 @@ class ItemDataManager {
         let itemData = ItemData()
         
         itemData.itemImageUrl = jsonData["\(index)"]["Image"]["Medium"].string
+        
         itemData.itemTitle = jsonData["\(index)"]["Name"].string
         itemData.itemPrice = jsonData["\(index)"]["Price"]["_value"].string
         itemData.itemUrl = jsonData["\(index)"]["Url"].string

@@ -20,30 +20,18 @@ class ItemTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     override func prepareForReuse() {
         //セルの再利用時に呼ばれるメソッド
         //ここでセルの初期化処理を行う
-        
     }
     
     func addItemData(itemData: ItemData) {
-        var urlString = itemData.itemImageUrl
+        let urlString = itemData.itemImageUrl
+        let imageUrl = URL(string: urlString!)
+        let imageData = NSData(contentsOf: imageUrl!)
+        itemImageView.image = UIImage(data: imageData! as Data)
         
-        if urlString == nil {
-            urlString = ""
-            return
-        } else {
-            let imageUrl = URL(string: urlString!)
-            let imageData = NSData(contentsOf: imageUrl!)
-            itemImageView.image = UIImage(data: imageData as! Data)
-        }
         itemTitleLabel.text = itemData.itemTitle
         itemPriceLabel.text = itemData.itemPrice
         itemURL = itemData.itemUrl

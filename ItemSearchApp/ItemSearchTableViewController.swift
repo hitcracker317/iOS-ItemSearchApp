@@ -14,7 +14,7 @@ class ItemSearchTableViewController: UITableViewController, UISearchBarDelegate 
     @IBOutlet var itemTableView: UITableView!
     
     var itemDataArray = [ItemData]()
-    
+    var selectedCellData: ItemData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,11 +90,18 @@ class ItemSearchTableViewController: UITableViewController, UISearchBarDelegate 
         return false
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedCellData = itemDataArray[indexPath.row] as ItemData
+        performSegue(withIdentifier: "toItemDetailViewController", sender: nil) //IDで指定したセグエを呼び出して画面遷移
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //セグエの画面遷移をするタイミング
-        let selectedCell = sender as? ItemTableViewCell //sederって何？
-        let detailViewController = segue.destination as? ItemDetailViewController
-        detailViewController?.itemDetailURL = (selectedCell?.itemURL)!
+        //セグエで画面遷移をするタイミングで実行されるメソッド
+        
+        if segue.identifier == "toItemDetailViewController" {
+            let detailViewController = segue.destination as? ItemDetailViewController
+            detailViewController?.itemDetailURL = (selectedCellData?.itemUrl)! //遷移先のviewControllerに値を受け渡す
+        }
     }
     
 

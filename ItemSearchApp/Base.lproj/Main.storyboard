@@ -26,15 +26,15 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" id="CyX-gA-Wph" customClass="ItemTableViewCell" customModule="ItemSearchApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="itemCell" id="CyX-gA-Wph" customClass="ItemTableViewCell" customModule="ItemSearchApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CyX-gA-Wph" id="pMc-e0-lEX">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Gl4-RF-0cY" kind="show" id="FlI-Ly-df5"/>
+                                    <segue destination="Gl4-RF-0cY" kind="push" identifier="toItemDetailViewController" id="9fZ-Lv-P1b"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -78,6 +78,7 @@
                             <constraint firstItem="xOL-7f-JQZ" firstAttribute="top" secondItem="K2V-SL-9Nw" secondAttribute="top" id="gS4-hF-eXf"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="AQP-BZ-drU"/>
                     <connections>
                         <outlet property="itemDetailWebView" destination="xOL-7f-JQZ" id="ccm-si-Woy"/>
                     </connections>

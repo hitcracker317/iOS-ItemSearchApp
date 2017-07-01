@@ -18,6 +18,8 @@ class ItemSearchTableViewController: UITableViewController, UISearchBarDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.itemTableView.register(UINib(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: "itemCell") //カスタムテーブルビューセルを読み込む
 
     }
 

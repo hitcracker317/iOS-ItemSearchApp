@@ -30,19 +30,23 @@ class ItemTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         //セルの再利用時に呼ばれるメソッド
         //ここでセルの初期化処理を行う
-        itemImageView.image = nil
+        
     }
     
     func addItemData(itemData: ItemData) {
-        let urlString = itemData.itemImageUrl
-        let imageUrl = URL(string: urlString!)
-        let imageData = NSData(contentsOf: imageUrl!)
-        itemImageView.image = UIImage(data: imageData! as Data)
+        var urlString = itemData.itemImageUrl
         
+        if urlString == nil {
+            urlString = ""
+            return
+        } else {
+            let imageUrl = URL(string: urlString!)
+            let imageData = NSData(contentsOf: imageUrl!)
+            itemImageView.image = UIImage(data: imageData as! Data)
+        }
         itemTitleLabel.text = itemData.itemTitle
         itemPriceLabel.text = itemData.itemPrice
         itemURL = itemData.itemUrl
-        
     }
 
 }

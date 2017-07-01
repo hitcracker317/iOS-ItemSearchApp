@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BCE62BFF9D4971A58493DD34 /* Pods_ItemSearchApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F8083E72E3761FFEF2E21E /* Pods_ItemSearchApp.framework */; };
+		DC5280EB1F07719B009FF44E /* ItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC5280EA1F07719B009FF44E /* ItemTableViewCell.xib */; };
 		F34BF2AD1EEF752B006309F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34BF2AC1EEF752B006309F1 /* AppDelegate.swift */; };
 		F34BF2B21EEF752B006309F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F34BF2B01EEF752B006309F1 /* Main.storyboard */; };
 		F34BF2B41EEF752B006309F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F34BF2B31EEF752B006309F1 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		87F8083E72E3761FFEF2E21E /* Pods_ItemSearchApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItemSearchApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B62648308167D6BA4CE0A32 /* Pods-ItemSearchApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemSearchApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ItemSearchApp/Pods-ItemSearchApp.release.xcconfig"; sourceTree = "<group>"; };
 		C96F39AB96D09A9AB47F15F4 /* Pods-ItemSearchApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItemSearchApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ItemSearchApp/Pods-ItemSearchApp.debug.xcconfig"; sourceTree = "<group>"; };
+		DC5280EA1F07719B009FF44E /* ItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemTableViewCell.xib; sourceTree = "<group>"; };
 		F34BF2A91EEF752B006309F1 /* ItemSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItemSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F34BF2AC1EEF752B006309F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F34BF2B11EEF752B006309F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,6 +97,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DC5280E91F077166009FF44E /* view */ = {
+			isa = PBXGroup;
+			children = (
+				DC5280EA1F07719B009FF44E /* ItemTableViewCell.xib */,
+				F353AA991EF0BFC100359DF1 /* ItemTableViewCell.swift */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
 		F34BF2A01EEF752B006309F1 = {
 			isa = PBXGroup;
 			children = (
@@ -122,9 +133,9 @@
 			children = (
 				F34BF2AC1EEF752B006309F1 /* AppDelegate.swift */,
 				F34EA94E1EF0BAB00071BE70 /* ItemSearchTableViewController.swift */,
-				F353AA991EF0BFC100359DF1 /* ItemTableViewCell.swift */,
 				F353AA9F1EF0C12300359DF1 /* ItemDetailViewController.swift */,
 				F34BF2B01EEF752B006309F1 /* Main.storyboard */,
+				DC5280E91F077166009FF44E /* view */,
 				F353AA981EF0BFA700359DF1 /* data */,
 				F34BF2B31EEF752B006309F1 /* Assets.xcassets */,
 				F34BF2B51EEF752B006309F1 /* LaunchScreen.storyboard */,
@@ -279,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC5280EB1F07719B009FF44E /* ItemTableViewCell.xib in Resources */,
 				F34BF2B71EEF752B006309F1 /* LaunchScreen.storyboard in Resources */,
 				F34BF2B41EEF752B006309F1 /* Assets.xcassets in Resources */,
 				F34BF2B21EEF752B006309F1 /* Main.storyboard in Resources */,

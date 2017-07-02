@@ -20,14 +20,11 @@ class ItemSearchTableViewController: UITableViewController, UISearchBarDelegate 
         super.viewDidLoad()
         
         self.itemTableView.register(UINib(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: "itemCell") //カスタムテーブルビューセルを読み込む
-
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
     }
-    
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         //UISearchBarの「検索」ボタンをタップしたタイミングで呼ばれるデリゲートメソッド
@@ -37,7 +34,6 @@ class ItemSearchTableViewController: UITableViewController, UISearchBarDelegate 
         
         if searchText.lengthOfBytes(using: String.Encoding.utf8) > 0 {
             //1文字以上入力してたら
-            //itemDataArray = ItemDataManager.sharedInstance.getItemData(text: searchText)
             ItemDataManager.sharedInstance.getItemData(text: searchText) { response in
                 //リクエストが終了してデータを取得したらクロージャー実行
                 self.itemDataArray = response as [ItemData]
@@ -49,7 +45,6 @@ class ItemSearchTableViewController: UITableViewController, UISearchBarDelegate 
         itemSearchBar.resignFirstResponder() //キーボード閉じる
     }
 
-    // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         //テーブルビューのセクション
         return 1
@@ -67,29 +62,6 @@ class ItemSearchTableViewController: UITableViewController, UISearchBarDelegate 
         return itemCell
     }
     
-
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // セルを編集可能にするかどうか
-        return false
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        //セルの削除、追加
-        if editingStyle == .delete {
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-        }    
-    }
-    
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        //セルを移動させたタイミング
-    }
-    
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        //セルを移動可能にするか
-        return false
-    }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedCellData = itemDataArray[indexPath.row] as ItemData
         performSegue(withIdentifier: "toItemDetailViewController", sender: nil) //IDで指定したセグエを呼び出して画面遷移
@@ -103,6 +75,4 @@ class ItemSearchTableViewController: UITableViewController, UISearchBarDelegate 
             detailViewController?.itemDetailURL = (selectedCellData?.itemUrl)! //遷移先のviewControllerに値を受け渡す
         }
     }
-    
-
 }
